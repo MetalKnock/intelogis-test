@@ -9,6 +9,7 @@ import {
 import { getFastestRoute } from '@/api/routeApi';
 import { isRouteData } from '@/types/predicates';
 import { Request } from '@/types/request';
+import { UNKNOWN_ERROR } from '@/constants/common';
 
 function* handleSetSelectedRoute(action: PayloadAction<Request>) {
   try {
@@ -20,10 +21,9 @@ function* handleSetSelectedRoute(action: PayloadAction<Request>) {
       { lat: thirdPoint.lat, lng: thirdPoint.lng },
     ];
 
-    const data: unknown = yield call(getFastestRoute, coordinates, [
-      'overview=full',
-      'geometries=geojson',
-    ]);
+    const query = ['overview=full', 'geometries=geojson'];
+
+    const data: unknown = yield call(getFastestRoute, coordinates, query);
 
     if (!isRouteData(data)) {
       throw new Error('Invalid route data');
@@ -34,6 +34,8 @@ function* handleSetSelectedRoute(action: PayloadAction<Request>) {
     if (error instanceof Error) {
       const { message } = error;
       yield put(fetchRoutesReject(message));
+    } else {
+      yield put(fetchRoutesReject(UNKNOWN_ERROR));
     }
   }
 }

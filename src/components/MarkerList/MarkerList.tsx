@@ -7,11 +7,11 @@ interface CustomMarkersProps {
 }
 
 const MarkerList = memo(({ markers }: CustomMarkersProps) => {
+  const map = useMap();
+
   if (markers.length === 0) {
     return null;
   }
-
-  const map = useMap();
 
   const bounds = markers.map(({ geocode }) => geocode);
   map.fitBounds(bounds);
