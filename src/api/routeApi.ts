@@ -1,5 +1,5 @@
-import { API_BASE, API_VERSION, ApiProfile, ApiService } from '@/constants/api';
 import { LatLngLiteral } from 'leaflet';
+import { API_BASE, API_VERSION, ApiProfile, ApiService } from '@/constants/api';
 
 const getFastestRoute = async (coordinates: LatLngLiteral[], query: string[]): Promise<unknown> => {
   const formattedCoordinates = coordinates

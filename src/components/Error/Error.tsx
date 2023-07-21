@@ -1,6 +1,6 @@
+import { useCallback, useEffect } from 'react';
 import { message } from 'antd';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { useEffect } from 'react';
 
 const Error = () => {
   const { error } = useAppSelector((state) => state.route);

@@ -1,6 +1,6 @@
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { REQUESTS } from '@/constants/request';
 import { Request } from '@/types/request';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type RequestSliceState = {
   requests: Request[];

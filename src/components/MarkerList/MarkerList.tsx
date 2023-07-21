@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { MarkerType } from '@/types/marker';
-import { memo } from 'react';
 
 interface CustomMarkersProps {
   markers: MarkerType[];

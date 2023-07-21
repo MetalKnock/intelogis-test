@@ -1,6 +1,6 @@
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Request } from '@/types/request';
 import { Route } from '@/types/route';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type RouteSliceState = {
   routes: Route[];
