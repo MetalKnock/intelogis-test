@@ -21,6 +21,7 @@ const RequestListTable = () => {
       columns={columns}
       dataSource={requests}
       pagination={false}
+      scroll={{ x: 450 }}
       onRow={(record) => {
         return {
           onClick: () => {
