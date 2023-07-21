@@ -1,0 +1,3 @@
+function* rootSaga() {}
+
+export { rootSaga };

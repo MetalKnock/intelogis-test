@@ -1,0 +1,11 @@
+.row {
+  cursor: pointer;
+
+  &_selected {
+    background-color: lightblue;
+
+    & .ant-table-cell-row-hover {
+      background-color: lightblue !important;
+    }
+  }
+}
