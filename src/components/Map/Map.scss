@@ -1,0 +1,9 @@
+.map {
+  min-height: calc(100vh - 8px * 2);
+}
+
+@media (max-width: 768px) {
+  .map {
+    min-height: 60vh;
+  }
+}
