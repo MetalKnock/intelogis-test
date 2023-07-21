@@ -1,22 +1,22 @@
+import { useCallback, useEffect } from 'react';
 import { message } from 'antd';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { useEffect } from 'react';
 
 const Error = () => {
   const { error } = useAppSelector((state) => state.route);
   const [messageApi, contextHolder] = message.useMessage();
 
+  const handleError = useCallback(() => {
+    messageApi.error(error);
+  }, [error, messageApi]);
+
   useEffect(() => {
     if (error) {
       handleError();
     }
-  }, [error]);
+  }, [error, handleError]);
 
-  const handleError = () => {
-    messageApi.error(error);
-  };
-
-  return <>{contextHolder}</>;
+  return contextHolder;
 };
 
 export default Error;

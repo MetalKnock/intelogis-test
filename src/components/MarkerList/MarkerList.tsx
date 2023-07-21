@@ -1,17 +1,17 @@
+import { memo } from 'react';
 import { Marker, Popup, useMap } from 'react-leaflet';
 import { MarkerType } from '@/types/marker';
-import { memo } from 'react';
 
 interface CustomMarkersProps {
   markers: MarkerType[];
 }
 
 const MarkerList = memo(({ markers }: CustomMarkersProps) => {
+  const map = useMap();
+
   if (markers.length === 0) {
     return null;
   }
-
-  const map = useMap();
 
   const bounds = markers.map(({ geocode }) => geocode);
   map.fitBounds(bounds);

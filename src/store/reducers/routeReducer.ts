@@ -1,6 +1,6 @@
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Request } from '@/types/request';
 import { Route } from '@/types/route';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type RouteSliceState = {
   routes: Route[];
@@ -18,7 +18,8 @@ const routeSlice = createSlice({
   name: 'route',
   initialState,
   reducers: {
-    fetchRoutesRequest(state, action: PayloadAction<Request>) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    fetchRoutesRequest(state, _action: PayloadAction<Request>) {
       state.isLoading = true;
       state.error = null;
     },

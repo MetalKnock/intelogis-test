@@ -1,7 +1,7 @@
+import { Row, Col } from 'antd';
 import { Error } from '@/components/Error';
 import { Map } from '@/components/Map';
 import { RequestListTable } from '@/components/RequestListTable';
-import { Row, Col } from 'antd';
 
 const App = () => {
   return (

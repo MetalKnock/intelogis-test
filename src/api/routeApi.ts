@@ -1,10 +1,9 @@
-import { API_BASE, API_VERSION, ApiProfile, ApiService } from '@/constants/api';
 import { LatLngLiteral } from 'leaflet';
+import { API_BASE, API_VERSION, ApiProfile, ApiService } from '@/constants/api';
+import { getFormattedCoordinates } from '@/utils/common';
 
 const getFastestRoute = async (coordinates: LatLngLiteral[], query: string[]): Promise<unknown> => {
-  const formattedCoordinates = coordinates
-    .map((coordinate) => Object.values(coordinate).reverse())
-    .join(';');
+  const formattedCoordinates = getFormattedCoordinates(coordinates);
 
   const url = `${API_BASE}/${ApiService.route}/${API_VERSION}/${
     ApiProfile.driving
@@ -15,7 +14,7 @@ const getFastestRoute = async (coordinates: LatLngLiteral[], query: string[]): P
     throw new Error('Network response was not ok');
   }
 
-  return await response.json();
+  return response.json();
 };
 
 export { getFastestRoute };
