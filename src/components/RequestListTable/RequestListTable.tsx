@@ -4,6 +4,7 @@ import { useAppSelector } from '@/hooks/useAppSelector';
 import { Request } from '@/types/request';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { setSelectedRequest } from '@/store/reducers/requestReducer';
+import { fetchRoutesRequest } from '@/store/reducers/routeReducer';
 import './RequestListTable.scss';
 
 const RequestListTable = () => {
@@ -12,6 +13,7 @@ const RequestListTable = () => {
 
   const handleRouteClick = (record: Request) => {
     dispatch(setSelectedRequest(record));
+    dispatch(fetchRoutesRequest(record));
   };
 
   return (
@@ -19,6 +21,7 @@ const RequestListTable = () => {
       columns={columns}
       dataSource={requests}
       pagination={false}
+      scroll={{ x: 450 }}
       onRow={(record) => {
         return {
           onClick: () => {
